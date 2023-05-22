@@ -98,6 +98,47 @@ void postOrde(Node*root){
     preOrder(root->right);
     cout<<root->data<<" ";
 }
+
+Node* findInBST(Node*root , int target){
+    if(root ==NULL){
+        return NULL;
+    }
+    if(root->data == target){
+        return root;
+    }
+    if(target> root->data){
+        findInBST(root->right , target);
+    }
+    else{
+        findInBST(root->left, target);
+    }
+  
+}
+
+
+int maxVal(Node*root){
+    Node*temp = root;
+    if(temp==NULL){
+        return -1;
+    }
+    while (temp->right!=NULL)
+    {
+        temp = temp->right;
+    }
+    
+    return temp->data;
+}
+
+
+int InOrderPredecessor(Node*root , int data){
+   
+    //find in the bst for the node
+    Node*temp= findInBST(root, data);
+
+    //node ke left subtreee ka maximummans hain
+    return maxVal(temp->left);
+    
+}
 int main(){
     Node*root = NULL;
     cout<<"Enter the data for Node: ";
@@ -110,5 +151,7 @@ int main(){
     preOrder(root);
     cout<<endl<<"printing PostOder"<<endl;
     postOrde(root);
+
+    cout<<"\nthe in order predecessor of the entered node is: "<<InOrderPredecessor(root,20);
 return 0;
 }

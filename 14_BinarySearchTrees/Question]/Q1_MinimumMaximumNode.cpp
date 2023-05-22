@@ -41,6 +41,7 @@ void takeInput(Node*&root){
         cin>>data;
     }
 }
+
 void levelOrderTravaersalWithEndl(Node*root){
     queue<Node*>q;
     q.push(root);
@@ -73,6 +74,7 @@ void levelOrderTravaersalWithEndl(Node*root){
         }
     }
 }
+
 void preOrder(Node*root){
     // nlr
     if(root == NULL){
@@ -82,6 +84,7 @@ void preOrder(Node*root){
     preOrder(root->left);
     preOrder(root->right);
 }
+
 void inOrder(Node*root){
     if(root== NULL){
         return;
@@ -90,6 +93,7 @@ void inOrder(Node*root){
     cout<<root->data<<" ";
     inOrder(root->right);
 }
+
 void postOrde(Node*root){
     if(root == NULL){
         return;
@@ -105,10 +109,26 @@ int minVal(Node*root){
         return -1;
     }
     while(temp->left !=NULL){
-        
+        temp = temp->left;
     }
 
+    return temp->data;
 }
+
+int maxVal(Node*root){
+    Node*temp = root;
+    if(temp==NULL){
+        return -1;
+    }
+    while (temp->right!=NULL)
+    {
+        temp = temp->right;
+    }
+    
+    return temp->data;
+}
+
+
 int main(){
     Node*root = NULL;
     cout<<"Enter the data for Node: ";
@@ -121,5 +141,10 @@ int main(){
     preOrder(root);
     cout<<endl<<"printing PostOder"<<endl;
     postOrde(root);
+
+
+
+    cout<<"\nthe minimum node of this tree is : "<<minVal(root)<<endl;
+    cout<<"\nthe maximum node of this tree is : "<<maxVal(root)<<endl;
 return 0;
 }
