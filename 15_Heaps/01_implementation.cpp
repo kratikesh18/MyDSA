@@ -48,17 +48,12 @@ public:
     }
 
 
-    void heapify()
+    // void heapify(int arr[] , int n , int i ){
+    // }
 };
 
 int main(){
-    Heap h;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
+    Heap h1;
+
+    return 0;
 }
