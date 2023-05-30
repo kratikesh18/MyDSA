@@ -3,7 +3,6 @@ using namespace std;
 
 class Heap
 {
-    private:
 
 public:
     int size ;
@@ -14,6 +13,28 @@ public:
         size = 0;
     }
     
+    void insert(int value){
+        ///insert value at end of the array
+            size = size+1;
+            int index = size;
+            arr[index] = value;
+
+        //place at correct position
+        //compare to i/2 till index>1 because in array index 1 is the root element
+        while(index > 1){
+
+            int parentIndex = index/2;
+            
+            if( arr[index] > arr[parentIndex] ){
+                swap(arr[index] , arr[parentIndex]);
+                index = parentIndex;
+            }
+            else{
+                break;
+            }
+        }
+    }
+
     int deleteNode(){
         
         //replace root to the last node
@@ -48,17 +69,30 @@ public:
     }
 
 
-    void heapify()
+    // void heapify()
 };
 
 int main(){
     Heap h;
     h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
-    h.arr[0] = -1;
+    h.arr[1] = 100;
+    h.arr[2] = 50;
+    h.arr[3] = 60 ;
+    h.arr[4] = 40;
+    h.arr[5] = 45;
+    h.size = 5;
+    cout<<"Printing the heap "<<endl;
+    for(int i = 0 ;i<=h.size;i++){
+        cout<<h.arr[i]<<" ";
+
+    }cout<<endl;
+    
+    h.insert(110);
+    
+    cout<<"Printing the heap "<<endl;
+    for(int i = 0 ;i<=h.size;i++){
+        cout<<h.arr[i]<<" ";
+
+    }cout<<endl;
+    
 }
