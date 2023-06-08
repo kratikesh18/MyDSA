@@ -35,13 +35,11 @@ int bottomToUp(int n){
     vector<int> dp(n+1, -1);
 
     dp[0] = 0;
-        if(n == 0){
+        if(n == 0)
             return dp[0];
-        }
+    
     dp[1] = 1;
-        if(n==1){
-            return dp[1];
-        }
+ 
     
     //iterating solution
     for(int i= 2 ;i<=n;i++){
@@ -49,6 +47,26 @@ int bottomToUp(int n){
     }    
     return dp[n];
 }
+
+//3rd Approch : SPACE OPTIMISATINON APPROCH
+    int spaceOptimisedSol(int n ){
+        // here we are not using any array
+        int prev1 = 1;
+        int prev2  =0;
+        //handeling edge cases 
+        if(n < 2)
+            return n;
+        
+        int curr ;
+        for(int i =2;i<=n ;i++){
+            curr = prev1 + prev2;
+            prev2  =prev1;
+            prev1 = curr;
+        }
+        return curr;
+    }
+
+
 
 
 int main(){
@@ -62,7 +80,11 @@ int main(){
     //int ans = topToBottom(n , dp);      //passing the dp array to the function for memoisation
     
     //bottom to up approch
-    int ans = bottomToUp(n);
+    // int ans = bottomToUp(n);
+    
+
+    // space optimised solution 
+    int ans = spaceOptimisedSol(n);
     cout<<"Ans is : "<<ans<<endl;
 
 return 0;
