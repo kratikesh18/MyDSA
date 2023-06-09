@@ -1,3 +1,4 @@
 *.exe
 .vscode/
 00_HisCode/
+18_Dynamic Programming/.gitignore
