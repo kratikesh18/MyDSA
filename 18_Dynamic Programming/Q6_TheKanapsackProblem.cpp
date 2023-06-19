@@ -135,7 +135,7 @@ int solveUsingBottomUp(int weight[] , int value[] , int n ,int capacity){
 
                  
     int spaceOptimisedSolutionOfKnapsackInOneVector(int weight[] , int value[] , int n ,int capacity){
-            //creating 2 vector prev and curr 
+        // solving with only one vector
             vector<int>curr(capacity+1 , 0);
 
 
