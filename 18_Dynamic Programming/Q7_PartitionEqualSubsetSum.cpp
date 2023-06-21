@@ -112,6 +112,42 @@ bool getAnsUsingTabulation(vector<int>&nums  ,int targetSum){
 }
 
 
+bool Spaceoptimised(vector<int>&nums , int targetSum){
+       //initializing the n value
+    int n = nums.size();
+    
+    //creating the 2d dp array 
+    vector<int>curr(targetSum+1 , 0);
+    vector<int>next (targetSum+1 , 0);
+
+
+    //analizing base cases 
+    for(int i =0 ;i<nums.size() ;i++){
+        next[0] = 1;
+    }
+
+    for(int index = n-1 ; index >=0; index--){
+        for(int tSum = 1 ; tSum<= targetSum; tSum++){
+            bool include =0;
+            if(tSum-nums[index] >=0){
+
+                 include= next[tSum-nums[index]];
+            }
+        bool exclude = next [tSum];
+
+        next[tSum] =  (include || exclude);
+     
+
+        }
+        curr=next;
+    }
+       return curr[targetSum];
+
+
+
+
+}
+
 
 bool isPartitionPossible(vector<int> &nums)
 {
@@ -137,10 +173,13 @@ bool isPartitionPossible(vector<int> &nums)
     vector<vector<int>> dpArray(nums.size(), vector<int>(targetSum + 1, -1));
     // return AnsUsingMemoisation(nums, index, targetSum, dpArray);
 
-    return getAnsUsingTabulation(nums, targetSum);
+    // return getAnsUsingTabulation(nums, targetSum);
+    return Spaceoptimised(nums, targetSum);
 
     // return ans;
 }
+
+
 };
 
 
