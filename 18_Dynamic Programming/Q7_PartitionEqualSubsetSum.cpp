@@ -118,30 +118,30 @@ bool Spaceoptimised(vector<int>&nums , int targetSum){
     
     //creating the 2d dp array 
     vector<int>curr(targetSum+1 , 0);
-    vector<int>next (targetSum+1 , 0);
-
+    vector<int>next(targetSum+1 , 0);
 
     //analizing base cases 
-    for(int i =0 ;i<nums.size() ;i++){
-        next[0] = 1;
-    }
+    curr[0] = 1;
+    next[0] = 1;
+    
+    
 
-    for(int index = n-1 ; index >=0; index--){
-        for(int tSum = 1 ; tSum<= targetSum; tSum++){
+    for(int index = n-1 ; index >= 0; index--){
+        for(int tSum = 1 ; tSum <= targetSum; tSum++){
             bool include =0;
-            if(tSum-nums[index] >=0){
+            if(tSum-nums[index] >= 0){
 
                  include= next[tSum-nums[index]];
             }
-        bool exclude = next [tSum];
+             bool exclude = next[tSum];
 
-        next[tSum] =  (include || exclude);
-     
+            curr[tSum] =  (include || exclude);
+        // the above is quite confusing remember curr and next respecitvely 
 
         }
-        curr=next;
+        next = curr;
     }
-       return curr[targetSum];
+       return next[targetSum];
 
 
 
@@ -185,7 +185,8 @@ bool isPartitionPossible(vector<int> &nums)
 
 
 int main(){
-    vector<int>nums{1,5,11,5};      //test case for true
+    // vector<int>nums{1,5,11,5};      //test case for true
+    vector<int>nums{1,5,2};      //test case for true
     // vector<int> nums{1, 2, 3, 5}; // test case for false
 
     /// solution
