@@ -131,7 +131,7 @@ bool Spaceoptimised(vector<int>&nums , int targetSum){
             bool include =0;
             if(tSum-nums[index] >= 0){
 
-                 include= next[tSum-nums[index]];
+                 include= next[tSum-nums[index]];      //agar kahi index minus mie jaane ki possiblity ho toh conditonal se check kara lena bhai 
             }
              bool exclude = next[tSum];
 
