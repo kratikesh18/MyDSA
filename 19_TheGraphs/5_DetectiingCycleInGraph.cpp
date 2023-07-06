@@ -69,7 +69,7 @@ class Graph{
     return false;
     }
 
-
+        //written diFferently
     // bool checkCyclicUsingBfs(int src , unordered_map<int , bool > &visited ){
 	// 	// setting up parents map 
 	// 	unordered_map<int , int> parents;
@@ -105,25 +105,20 @@ class Graph{
 int main(){
     
     Graph<int> g;
-    
-	// int n = 4;  
-    // g.addEdge(0,1,0);
-    // g.addEdge(1,3,0);
-    // g.addEdge(0,2,0);
-    // g.addEdge(2,4,0);
-
-// Add edges to create a non-cyclic graph
-// int n =4;
-// g.addEdge(0, 1, false);
-// g.addEdge(1, 2, false);
-// g.addEdge(2, 3, false);
-
-    int n =4;
+        //case for not present
+	int n = 4;  
     g.addEdge(0,1,0);
-    g.addEdge(1,2,0);
+    g.addEdge(1,3,0);
+    g.addEdge(0,2,0);
     g.addEdge(2,4,0);
-    g.addEdge(2,3,0);
-    g.addEdge(4,3,0);
+
+    //case for Present;
+    // int n =4;
+    // g.addEdge(0,1,0);
+    // g.addEdge(1,2,0);
+    // g.addEdge(2,4,0);
+    // g.addEdge(2,3,0);
+    // g.addEdge(4,3,0);
 
     cout<<"printing the adjacency list"<<endl;
     g.printAdjacencyList();
