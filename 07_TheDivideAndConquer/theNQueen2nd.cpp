@@ -44,15 +44,18 @@ void solve(vector<vector<char>>&board,int col , int n){
             //action
             board[row][col] ='Q';
             rowCheck[row] = true;
-            upperLeft[n-1+col-row] = true;
-            lowerLeft[row+col] = true;
+            upperLeft[n-1 + col-row] = true;
+            lowerLeft[row + col] = true;
+
+
+
             //recursive call 
             solve(board,col+1, n);
             //the BackTrack
             board[row][col] ='-';
             rowCheck[row] = false;
-            upperLeft[n-1+col-row] = false;
-            lowerLeft[row+col] = false;
+            upperLeft[n-1 + col-row] = false;
+            lowerLeft[row + col] = false;
         }
     }
 }
